@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Student, Service, PlanningAssignments, StudentGroupAssignments, Role } from '../types';
 import { GroupIcon, CogIcon, ServiceIcon, CalendarIcon, TrashIcon, PlusIcon, ViewGridIcon, CheckIcon, LockClosedIcon, DownloadIcon } from './icons';
 import { downloadPlanningPdf } from './printUtils';
