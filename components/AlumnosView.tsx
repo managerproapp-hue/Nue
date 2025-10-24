@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Student, EvaluationsState, StudentPracticalExam, TheoreticalExamGrades, CourseGrades } from '../types';
 import StudentTable from './StudentTable';
 // Fix: Changed default import to named import for StudentDetailModal to match its export type.

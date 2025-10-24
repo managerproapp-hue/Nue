@@ -1,4 +1,4 @@
-import { Student, NavItemType } from './types';
+import { Student, NavItemType, Product } from './types';
 
 export const INITIAL_STUDENTS: Student[] = [
   {
@@ -71,6 +71,7 @@ export const NAV_ITEMS: NavItemType[] = [
   'Registro de Salidas',
   'Exámenes Prácticos',
   'Gestión Académica',
+  'Cocina',
   'Gestión de la App',
 ];
 
@@ -141,4 +142,137 @@ export const PRACTICAL_EXAM_RUBRIC_T1 = [
         weight: 0.30,
         criteria: [
             { id: 'ra3c1', text: 'Creatividad y propuestas', levels: { 10: 'Propone varias elaboraciones bien razonadas, combinaciones equilibradas.', 8: 'Propone elaboraciones correctas pero poco variadas.', 5: 'Propone solo una elaboración básica o repetitiva.', 2: 'No propone elaboraciones coherentes.' } },
-            { id: 'ra3c2', text: 'Aprovechamiento de recursos', levels: { 10: 'Máximo aprovechamiento (fondos, recortes, técnicas de reutilización).', 
+            { id: 'ra3c2', text: 'Aprovechamiento de recursos', levels: { 10: 'Máximo aprovechamiento (fondos, recortes, técnicas de reutilización).', 8: 'Aprovecha parte de los recursos, pocos desperdicios.', 5: 'Algún aprovechamiento pero genera desperdicios.', 2: 'Desaprovecha gran parte de las materias primas.' } },
+            { id: 'ra3c3', text: 'Organización y ejecución', levels: { 10: 'Trabajo fluido, tiempos bien gestionados, secuencia clara.', 8: 'Trabajo organizado con leves retrasos.', 5: 'Organización justa, se retrasa en fases importantes.', 2: 'Falta de organización, pierde mucho tiempo.' } }
+        ]
+    },
+    { 
+        id: 'ra4', 
+        title: 'R.A.4 – Necesidades alimenticias específicas', 
+        weight: 0.20,
+        criteria: [
+            { id: 'ra4c1', text: 'Identificación y selección de alimentos', levels: { 10: 'Identifica perfectamente los alimentos excluidos y selecciona sustitutos adecuados.', 8: 'Identifica la mayoría de los alimentos y propone sustitutos aceptables.', 5: 'Identificación incompleta, sustitutos poco adecuados.', 2: 'No identifica exclusiones, usa alimentos prohibidos.' } },
+            { id: 'ra4c2', text: 'Prevención de contaminación cruzada', levels: { 10: 'Cumple rigurosamente las normas (utensilios, tablas, almacenaje).', 8: 'Cumple normas con alguna falta menor.', 5: 'Cumple parcialmente, riesgo bajo de contaminación.', 2: 'No respeta normas, riesgo alto de contaminación.' } },
+            { id: 'ra4c3', text: 'Resultado final y justificación', levels: { 10: 'Elabora plato adaptado, bien presentado y justifica la importancia de la dieta.', 8: 'Elabora plato correcto, justificación básica.', 5: 'Plato aceptable pero sin coherencia total.', 2: 'Plato incorrecto o no apto para la dieta.' } }
+        ]
+    },
+];
+
+export const PRACTICAL_EXAM_RUBRIC_T2 = [
+    { 
+        id: 'ra1', 
+        title: 'R.A.1 – Organización', 
+        weight: 0.20,
+        criteria: [
+            { id: 'ra1c1', text: 'Planificación y mise en place', levels: { 10: 'Plan detallado y ajustado al tiempo.', 8: 'Correcto con leves ajustes.', 5: 'Incompleto o desordenado.', 2: 'Sin planificación.' } },
+            { id: 'ra1c2', text: 'Preparación de materias primas y utensilios', levels: { 10: 'Identifica y prepara todo correctamente.', 8: 'Pequeñas faltas en la preparación.', 5: 'Olvida elementos.', 2: 'No prepara adecuadamente.' } },
+            { id: 'ra1c3', text: 'Orden, limpieza y seguridad', levels: { 10: 'Área impecable, normas seguidas.', 8: 'Generalmente ordenado, leves fallos.', 5: 'Desorden notable pero seguro.', 2: 'Caótico, incumple normas.' } },
+            { id: 'ra1c4', text: 'Conservación intermedia', levels: { 10: 'Aplica técnicas correctas (abatidor, refrigeración).', 8: 'Conserva bien con alguna falta menor.', 5: 'Básico, descuidos.', 2: 'No aplica medidas adecuadas.' } }
+        ]
+    },
+    { 
+        id: 'ra2', 
+        title: 'R.A.2 – Técnicas', 
+        weight: 0.30,
+        criteria: [
+            { id: 'ra2c1', text: 'Métodos de cocción', levels: { 10: 'Domina ≥3 métodos, dos en mismo género.', 8: 'Aplica correctamente 3 métodos.', 5: 'Aplica 2 métodos con fallos.', 2: 'No cumple requisito.' } },
+            { id: 'ra2c2', text: 'Salsa', levels: { 10: 'Equilibrada, técnica impecable.', 8: 'Correcta, leves fallos.', 5: 'Básica o poco ligada.', 2: 'No elabora o incorrecta.' } },
+            { id: 'ra2c3', text: 'Guarniciones', levels: { 10: 'Dos variadas y coherentes.', 8: 'Dos correctas.', 5: 'Una adecuada.', 2: 'No cumple.' } },
+            { id: 'ra2c4', text: 'Técnicas de corte y preparación', levels: { 10: 'Precisión profesional.', 8: 'Correcto con leves errores.', 5: 'Poco uniforme.', 2: 'Incorrecto o inseguro.' } },
+            { id: 'ra2c5', text: 'Resultado final', levels: { 10: 'Textura, sabor y presentación excelentes.', 8: 'Buen resultado, leves mejoras.', 5: 'Aceptable, mejorable.', 2: 'Mal ejecutado o inseguro.' } }
+        ]
+    },
+    { 
+        id: 'ra3', 
+        title: 'R.A.3 – Elaboración a partir de materias primas', 
+        weight: 0.30,
+        criteria: [
+            { id: 'ra3c1', text: 'Aperitivo libre', levels: { 10: 'Creativo, equilibrado y bien ejecutado.', 8: 'Correcto, con detalles mejorables.', 5: 'Aceptable pero simple.', 2: 'Incorrecto o incompleto.' } },
+            { id: 'ra3c2', text: 'Diseño del plato principal', levels: { 10: 'Equilibrado y armónico.', 8: 'Correcto, leves fallos.', 5: 'Básico, incoherente.', 2: 'Mal planteado.' } },
+            { id: 'ra3c3', text: 'Aprovechamiento de recursos', levels: { 10: 'Máximo aprovechamiento de subproductos.', 8: 'Buen aprovechamiento.', 5: 'Algún aprovechamiento básico.', 2: 'Desaprovecha género.' } },
+            { id: 'ra3c4', text: 'Gestión del tiempo (2h)', levels: { 10: 'Organiza y termina a tiempo.', 8: 'Ligeros retrasos pero entrega.', 5: 'Retrasos importantes.', 2: 'No termina.' } }
+        ]
+    },
+    { 
+        id: 'ra4', 
+        title: 'R.A.4 – Necesidades alimenticias específicas', 
+        weight: 0.20,
+        criteria: [
+            { id: 'ra4c1', text: 'Identificación de exclusiones', levels: { 10: 'Reconoce todas las exclusiones.', 8: 'Reconoce la mayoría.', 5: 'Parcial.', 2: 'No identifica.' } },
+            { id: 'ra4c2', text: 'Sustituciones adecuadas', levels: { 10: 'Correctos y coherentes.', 8: 'Aceptables.', 5: 'Poco adecuados.', 2: 'Incorrectos.' } },
+            { id: 'ra4c3', text: 'Prevención contaminación cruzada', levels: { 10: 'Normas cumplidas rigurosamente.', 8: 'Cumple con leves fallos.', 5: 'Parcialmente correcto.', 2: 'No cumple normas.' } },
+            { id: 'ra4c4', text: 'Plato adaptado', levels: { 10: 'Adaptado y justificado.', 8: 'Correcto, justificación básica.', 5: 'Aceptable pero incoherente.', 2: 'Incorrecto o no apto.' } }
+        ]
+    },
+];
+
+export const ACADEMIC_EVALUATION_STRUCTURE = {
+  trimestres: [
+    {
+      name: "1º Trimestre",
+      instruments: [
+        { name: "Examen 1", type: "manual", key: "examen1", weight: 0.10 },
+        { name: "Examen 2", type: "manual", key: "examen2", weight: 0.10 },
+        { name: "Servicios 1", type: "calculated", key: "servicios1", weight: 0.15 },
+        { name: "Ex. Practico 1", type: "calculated", key: "exPractico1", weight: 0.15 },
+      ]
+    },
+    {
+      name: "2º Trimestre",
+      instruments: [
+        { name: "Examen 3", type: "manual", key: "examen3", weight: 0.10 },
+        { name: "Examen 4", type: "manual", key: "examen4", weight: 0.10 },
+        { name: "Servicios 2", type: "calculated", key: "servicios2", weight: 0.15 },
+        { name: "Ex. Practico 2", type: "calculated", key: "exPractico2", weight: 0.15 },
+      ]
+    }
+  ],
+  recuperacion: {
+    name: "Recuperación",
+    instruments: [
+      { name: "Ex. Teorico REC", type: "manual", key: "recuperacion", weight: 0.50 },
+      { name: "Ex. Practico REC", type: "calculated", key: "exPracticoRec", weight: 0.50 },
+    ]
+  }
+};
+
+export const PRODUCT_CATEGORIES = ['Carnes', 'Pescados', 'Mariscos', 'Lácteos', 'Verduras', 'Frutas', 'Congelados', 'Almacén', 'Aceites y Vinagres', 'Condimentos', 'Cereales', 'Bebidas', 'Otros'];
+export const PRODUCT_UNITS = ['kg', 'litro', 'unidad', 'gramo', 'mililitro', 'manojo'];
+export const ALLERGENS = ['Gluten', 'Lactosa', 'Frutos Secos', 'Pescado', 'Huevo', 'Soja', 'Marisco', 'Apio', 'Mostaza', 'Sésamo', 'Sulfitos', 'Altramuces', 'Moluscos', 'Cacahuete'];
+export const RECIPE_CATEGORIES = ['Entrantes', 'Sopas y Cremas', 'Ensaladas', 'Arroces y Pastas', 'Carnes', 'Pescados', 'Guarniciones', 'Postres', 'Salsas', 'Bebidas'];
+
+export const ALLERGEN_MAP: { [key: string]: string } = {
+  HUE: 'Huevo',
+  GLU: 'Gluten',
+  PES: 'Pescado',
+  CRU: 'Marisco',
+  MOL: 'Moluscos',
+  API: 'Apio',
+  SOY: 'Soja',
+  FRA: 'Frutos Secos',
+  CAC: 'Cacahuete',
+  SES: 'Sésamo',
+  MUS: 'Mostaza',
+  SUL: 'Sulfitos',
+  LAC: 'Lactosa',
+};
+
+export const normalizeCategory = (cat: string): string => {
+    const mapping: { [key: string]: string } = {
+        carnes: 'Carnes',
+        pescados: 'Pescados',
+        mariscos: 'Mariscos',
+        lacteos: 'Lácteos',
+        verduras: 'Verduras',
+        frutas: 'Frutas',
+        congelados: 'Congelados',
+        almacen: 'Almacén',
+        aceites: 'Aceites y Vinagres',
+        condimentos: 'Condimentos',
+    };
+    return mapping[cat.toLowerCase()] || 'Otros';
+};
+
+
+// FIX: Export RAW_PRODUCTS so it can be used in other files.
+export const RAW_PRODUCTS: Array<Omit<Product, 'price'> & {allergens: string[]}> = [];

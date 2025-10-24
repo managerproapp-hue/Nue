@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Recipe, Product, RecipeIngredient, RecipeStep, Elaboration } from '../types';
 import { ALLERGENS, PRODUCT_UNITS, PRODUCT_CATEGORIES, RECIPE_CATEGORIES } from '../constants';
 import { PencilIcon, PlusIcon, TrashIcon, BackIcon, UploadIcon, EyeIcon, DownloadIcon, XIcon, CheckIcon, ClipboardIcon, CodeBracketIcon, SearchIcon, LinkIcon } from './icons';

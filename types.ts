@@ -31,6 +31,16 @@ export interface Student {
   anotaciones?: Annotation[];
 }
 
+export interface Product {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
+  unit: string;
+  allergens: string[];
+}
+
+
 export type NavItemType = 
   | 'Dashboard'
   | 'Alumnos' 
@@ -39,7 +49,10 @@ export type NavItemType =
   | 'Registro de Salidas'
   | 'Exámenes Prácticos'
   | 'Gestión Académica'
+  | 'Cocina'
   | 'Gestión de la App';
+
+export type CocinaSubView = 'Productos' | 'Pedidos' | 'Mi Recetario' | 'Creación de Menús';
 
 export interface TeacherData {
   name: string;
@@ -52,6 +65,41 @@ export interface InstituteData {
   address: string;
   cif: string;
   logo?: string | null;
+}
+
+// --- MI RECETARIO TYPES ---
+
+export interface RecipeIngredient {
+  productId: string;
+  quantity: number;
+  unit: string;
+}
+
+export interface RecipeStep {
+  id: string;
+  description: string;
+}
+
+export interface Elaboration {
+  id: string;
+  name: string;
+  ingredients: RecipeIngredient[];
+  steps: RecipeStep[];
+}
+
+export interface Recipe {
+  id: string;
+  name: string;
+  category: string;
+  imageUrl?: string;
+  description: string;
+  serviceNotes: string; // "Anotaciones extras"
+  servings: number;
+  elaborations: Elaboration[];
+  visibility: 'private' | 'public';
+  authorId: string; // Placeholder for future multi-user system
+  createdAt: string;
+  updatedAt?: string;
 }
 
 // --- GESTION PRÁCTICA TYPES ---
@@ -74,6 +122,36 @@ export type PlanningAssignments = Record<string, Record<string, string>>; // { [
 export interface Role {
     name: string;
     type: 'leader' | 'secondary';
+}
+
+
+// --- CREACIÓN DE MENÚS TYPES ---
+
+export interface MenuApartado {
+  [apartadoName: string]: string[]; // Array of recipe IDs
+}
+
+export interface Menu {
+  pax: number;
+  comedor: MenuApartado;
+  takeaway: MenuApartado;
+}
+
+export interface MenusState {
+  [serviceId: string]: Menu;
+}
+
+// --- FICHA DE SERVICIO MENU TYPES ---
+export interface ServiceDish {
+  id: string;
+  name: string;
+  assignedGroup: string;
+}
+
+export interface ServiceMenu {
+  comedor: ServiceDish[];
+  takeaway: ServiceDish[];
+  familia: ServiceDish[];
 }
 
 
@@ -141,62 +219,4 @@ export interface CourseModuleGrades {
 
 export type CourseGrades = {
   [moduleKey: string]: CourseModuleGrades;
-};
-// --- MÓDULO COCINA TYPES ---
-export type CocinaSubView = 'Productos' | 'Mi Recetario' | 'Creación de Menús' | 'Pedidos';
-
-export interface Product {
-  id: string;
-  name: string;
-  category: string;
-  price: number;
-  unit: string;
-  allergens: string[];
-}
-
-export interface RecipeIngredient {
-  productId: string;
-  quantity: number;
-  unit: string;
-}
-
-export interface RecipeStep {
-  id: string;
-  description: string;
-}
-
-export interface Elaboration {
-  id: string;
-  name: string;
-  ingredients: RecipeIngredient[];
-  steps: RecipeStep[];
-}
-
-export interface Recipe {
-  id: string;
-  name: string;
-  category: string;
-  servings: number;
-  description: string;
-  serviceNotes: string;
-  imageUrl?: string;
-  elaborations: Elaboration[];
-  visibility: 'private' | 'public';
-  authorId: string;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export type MenuApartado = {
-  [sectionName: string]: string[]; // Array of recipe IDs
-};
-
-export interface Menu {
-  pax: number;
-  comedor: MenuApartado;
-  takeaway: MenuApartado;
-}
-
-export type MenusState = {
-  [serviceId: string]: Menu;
 };

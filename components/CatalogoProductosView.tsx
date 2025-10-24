@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Product } from '../types';
 import { PRODUCT_CATEGORIES, PRODUCT_UNITS, ALLERGENS, ALLERGEN_MAP, normalizeCategory } from '../constants';
 import { PlusIcon, PencilIcon, TrashIcon, UploadIcon, DownloadIcon, CheckIcon, XIcon } from './icons';
